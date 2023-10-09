@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome | T2T5 site</title>
+  <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <link rel="icon" href="favicon.ico">
+  <meta property="og:title" content="Welcome | T2T5 site">
+  <meta property="og:site_name" content="T2T5">
+  <meta property="og:url" content="https://f3f5.xyz/">
+  <meta property="og:description" content="F3F5 is a minecraft server with the goal to never reset the world in a free for all pvp environment, with little modification to the vanilla survival gamemode.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+  <div class="top-bar">
+    <div class="label">
+      <a href="https://discord.gg/WGShYkQ8nK" target="_blank">DISCORD</a>
+    </div>
+    <div class="label">
+      <a href="https://vk.com/f3f5_russia" target="_blank">ВКОНТАКТЕ</a>
+    </div>
+    <div class="label">
+      <a href="https://www.youtube.com/channel/UCsyN6dSBYkqDcr4TgZfbtuQ" target="_blank">YOUTUBE</a>
+    </div>
+  </div>
+  <div class="container">
+    <h1 data-translate="welcome"></h1>
+    <p data-translate="description"></p>
+    <p data-translate="created"></p>
+    <p data-translate="ip"></p>
+    <p data-translate="commands"></p>
+    <div data-translate="donationText"></div>
+    <div class="progress-section">
+    </div>
+    <a class="btn donations" target="_blank" href="https://qiwi.com/n/IMBEK" data-translate="donateButton"></a>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      var translations = {
+        en: {
+          welcome: 'T2T5 - WITHOUT RULES AND BANS!',
+          description: 'T2T5 is a minecraft server with the goal to never reset the world in a free for all pvp environment, with little modification to the vanilla survival gamemode.',
+          created: 'The world created <b>June 29, 2023 | 23:55 GE</b>.',
+          ip: 'The IP to connect is <b>t2t5.ru | 1.12.2 Minecraft Java</b>.',
+          commands: 'Server commands and world stats on <b>/help</b>.',
+          donationText: '<p style="color:#ffaa00">I don\'t sell anything in the game, but every month need to pay for expensive equipment. Donations will help keep the server afloat.</p>',
+          donateButton: 'DONATE'
+        },
+        ru: {
+          welcome: 'T2T5 - БЕЗ ПРАВИЛ И БАНОВ!',
+          description: 'T2T5 - это сервер Minecraft, целью которого является никогда не сбрасывать мир в свободной PvP-среде со слабыми модификациями стандартного режима выживания.',
+          created: 'Мир создан <b>29 июня 2023 года | 23:55 GE</b>.',
+          ip: 'IP для подключения: <b>t2t5.ru | 1.12.2 Minecraft Java</b>.',
+          commands: 'Команды сервера и статистика мира доступны по команде <b>/help</b>.',
+          donationText: '<p style="color:#ffaa00">Я ничего не продаю в игре, однако каждый месяц необходимо оплачивать дорогое оборудование. Пожертвования помогут удержаться серверу на плаву.</p>',
+          donateButton: 'ПОЖЕРТВОВАТЬ'
+        }
+      };
+
+      var userLanguage = navigator.language.substr(0, 2);
+      var currentLanguage = translations[userLanguage] ? userLanguage : 'en';
+
+      translate(currentLanguage);
+
+      function translate(language) {
+        $('[data-translate]').each(function() {
+          var key = $(this).data('translate');
+          $(this).html(translations[language][key]);
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
